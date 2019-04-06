@@ -6,6 +6,7 @@ import Signup from './components/sign-up'
 import LoginForm from './components/login-form'
 import Navbar from './components/navbar'
 import Home from './components/home'
+import AboutUs from './components/AboutUs';
 
 class App extends Component {
   constructor() {
@@ -29,7 +30,7 @@ class App extends Component {
   }
 
   getUser() {
-    axios.get('/user/').then(response => {
+    axios.get('/user').then(response => {
       console.log('Get user response: ')
       console.log(response.data)
       if (response.data.user) {
@@ -62,6 +63,9 @@ class App extends Component {
         <Route
           exact path="/"
           component={Home} />
+        <Route
+          exact path="/AboutUs"
+          component={AboutUs} />
         <Route
           path="/login"
           render={() =>
